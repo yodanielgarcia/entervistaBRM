@@ -1,0 +1,20 @@
+create database catalogo;
+use catalogo;
+
+create table marca(
+nombre varchar (30) not null,
+referencia varchar(30),
+primary key (nombre)
+);
+
+create table producto(
+id_producto serial,
+nombre varchar(30),
+talla varchar(5),
+observaciones varchar(50),
+marca_producto varchar(30),
+cant_inventario int,
+fecha_embarque datetime,
+primary key (id_producto),
+foreign key (marca_producto) references marca (nombre)
+);
